@@ -4,6 +4,7 @@ title: "论文笔记《Unsupervised Learning via Meta-Learning》"
 subtitle: '无监督元学习'
 author: "iYinST"
 header-style: text
+# header-img: "img/post-bg-alibaba.jpg"
 tags:
   - 论文笔记
   - 无监督
@@ -66,14 +67,11 @@ $$
 \mathcal{P},\left\{\boldsymbol{\mu}_{c}\right\}=\underset{\left\{\mathcal{C}_{c}\right\},\left\{\boldsymbol{\mu}_{c}\right\}}{\arg \min } \sum_{c=1}^{k} \sum_{\mathbf{z} \in \mathcal{C}_{c}}\left\|\mathbf{z}-\boldsymbol{\mu}_{c}\right\|_{\mathbf{A}}^{2}
 $$
 
-
 为了避免聚类簇不平衡构造的任务，选择不对
 $$
 p(c) \propto\left|\mathcal{C}_{c}\right|
 $$
 进行采样，而是对每个任务进行均匀采样N个簇。
 
-在$$\left\{\mathbf{Z}_{i}\right\}$$上构建划分之后，还需要考虑：是否应该对embedding或图像进行meta-learning吗？作者认为为了在元测试阶段成功解决新任务，将embedding作为输入的学习过程$$\mathcal{F}$$取决于embedding函数将推广到分布外观测的能力。另外通过对图像的元学习，$$\mathcal{F}$$可以从最原始的表示形式分别将$$f$$适应每个评估任务。因此作者选择对图像进行元学习。
-
-
+在$$\left\{\mathbf{Z}_{i}\right\}$$上构建划分之后，还需要考虑：是否应该对embedding或图像进行meta-learning吗？作者认为为了在元测试阶段成功解决新任务，将embedding作为输入的学习过程$$\mathcal{F}$$取决于embedding函数将推广到分布外观测的能力。另外通过对图像的元学习，$$\mathcal{F}$$可以从最原始的表示形式分别将$$f$$适应每个评估任务。因此作者选择对图像进行元学习。算法细节如下。![image-20200408143748240](/img/in-post/image-20200408143748240.png)
 
